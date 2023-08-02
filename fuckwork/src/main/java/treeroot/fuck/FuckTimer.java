@@ -11,14 +11,12 @@ import java.time.LocalTime;
  * @author xugenyin
  */
 public class FuckTimer {
-    private final JLabel countdownLabel;
 
     public FuckTimer() {
         CustomButton frame = new CustomButton();
-//        JFrame frame = new JFrame();
         frame.setSize(400, 200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        countdownLabel = new JLabel();
+        JLabel countdownLabel = new JLabel();
         countdownLabel.setBackground(Color.WHITE);
         countdownLabel.setHorizontalAlignment(SwingConstants.CENTER);
         countdownLabel.setFont(countdownLabel.getFont().deriveFont(25.0f));
@@ -34,6 +32,8 @@ public class FuckTimer {
                 if (remainingDuration.isNegative()) {
                     countdownLabel.setText("蟹老板，我下班了~~");
                     ((Timer) e.getSource()).stop();
+                    //弹出来
+                    frame.setAlwaysOnTop(true);
                 } else {
                     long remainingSeconds = remainingDuration.getSeconds();
                     String titleTime = String.format(

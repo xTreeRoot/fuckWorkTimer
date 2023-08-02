@@ -10,11 +10,10 @@ public class CustomButton extends JFrame {
     public CustomButton() {
         // 创建自定义按钮
         JButton alwaysOnTopButton = new JButton("置顶//取消");
-        JButton timerButton = new JButton("重新定时");
+        JButton timerButton = new JButton("重设定时");
         alwaysOnTopButton.setFocusable(false);
         alwaysOnTopButton.addActionListener(this::toggleAlwaysOnTop);
         timerButton.addActionListener(this::createUiComponents);
-
         // 创建工具栏并添加按钮和间隔
         JToolBar toolBar = new JToolBar();
         toolBar.add(alwaysOnTopButton);
