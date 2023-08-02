@@ -16,7 +16,6 @@ public class FuckTimer {
     public FuckTimer() {
         CustomButton frame = new CustomButton();
 //        JFrame frame = new JFrame();
-        frame.setTitle("打工人打工魂~~下班计时器");
         frame.setSize(400, 200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         countdownLabel = new JLabel();
@@ -35,15 +34,20 @@ public class FuckTimer {
                 if (remainingDuration.isNegative()) {
                     countdownLabel.setText("蟹老板，我下班了~~");
                     ((Timer) e.getSource()).stop();
-                    countdownLabel.setBackground(Color.WHITE);
                 } else {
                     long remainingSeconds = remainingDuration.getSeconds();
-                    String remainingTime = String.format("%02d:%02d:%02d", remainingSeconds / 3600,
+                    String titleTime = String.format(
+                            "%02d:%02d:%02d",
+                            remainingSeconds / 3600,
                             (remainingSeconds % 3600) / 60,
                             remainingSeconds % 60);
-                    frame.setTitle("打工人打工魂~~剩余" + remainingTime);
-                    countdownLabel.setBackground(Color.WHITE);
-                    countdownLabel.setText(remainingTime);
+                    String remainingTime = String.format(
+                            "<html> <p align=\"center\"><span>--</span> %02d:%02d:%02d--</p></html/>",
+                            remainingSeconds / 3600,
+                            (remainingSeconds % 3600) / 60,
+                            remainingSeconds % 60);
+                    countdownLabel.setText(titleTime);
+                    frame.setTitle("下班下班下班~~剩余" + titleTime);
                 }
             }
         });
@@ -74,8 +78,8 @@ public class FuckTimer {
      * @return 新的字体大小
      */
     private int calculateNewFontSize(int frameWidth) {
-        // 将字体大小设置为框架宽度的 1/10
-        return frameWidth / 10;
+        // 将字体大小设置为框架宽度的 1/15
+        return frameWidth / 15;
     }
 
 }
