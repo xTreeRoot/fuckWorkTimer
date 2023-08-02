@@ -14,18 +14,19 @@ public class CustomButton extends JFrame {
         alwaysOnTopButton.setFocusable(false);
         alwaysOnTopButton.addActionListener(this::toggleAlwaysOnTop);
         timerButton.addActionListener(this::createUiComponents);
-        // 创建自定义标题栏面板
-        JPanel titleBarPanel = new JPanel();
-        titleBarPanel.setLayout(new BorderLayout());
 
-        titleBarPanel.add(alwaysOnTopButton, BorderLayout.EAST);
-        titleBarPanel.add(timerButton, BorderLayout.WEST);
-
-        JPanel decorationsLayer = new JPanel(new BorderLayout());
-        decorationsLayer.add(titleBarPanel, BorderLayout.NORTH);
-
-        Container contentPane = getContentPane();
-        contentPane.add(decorationsLayer, BorderLayout.NORTH);
+        // 创建工具栏并添加按钮和间隔
+        JToolBar toolBar = new JToolBar();
+        toolBar.add(alwaysOnTopButton);
+        // 添加水平间隔
+        toolBar.add(Box.createRigidArea(new Dimension(10, 0)));
+        toolBar.add(timerButton);
+        toolBar.setFloatable(false);
+        toolBar.setBackground(Color.WHITE);
+        // 将工具栏放置在框架的北部（上方）
+        add(toolBar, BorderLayout.NORTH);
+        pack();
+        setVisible(true);
     }
     private void toggleAlwaysOnTop(ActionEvent e) {
         setAlwaysOnTop(!isAlwaysOnTop());
