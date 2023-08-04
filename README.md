@@ -13,7 +13,7 @@
 - 别问为什么没有exe，我不会打包
 
 #### 下载链接
-[下班计时器](https://github.com/xTreeRoot/fuckWorkTimer/releases/tag/dev)
+[下班计时器.jar](https://github.com/xTreeRoot/fuckWorkTimer/releases/tag/dev)
   
 #### 最新源码地址
 https://gitee.com/xu-genyin/fuck-work
